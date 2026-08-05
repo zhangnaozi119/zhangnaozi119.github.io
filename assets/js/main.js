@@ -70,6 +70,7 @@
   /* ---- 当前页导航高亮 ---- */
   function markActive() {
     var path = location.pathname.split('/').pop() || 'index.html';
+    if (!path || path.endsWith('/')) path = 'index.html';
     document.querySelectorAll('.nav-links a').forEach(function (a) {
       var href = a.getAttribute('href');
       if (href === path) a.classList.add('on');
