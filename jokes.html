@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>笑话长脑子 · 快快长脑子</title>
+<meta name="description" content="脑筋急转弯、冷笑话、谐音梗、科学冷幽默——笑点也是一种智力。">
+<meta name="theme-color" content="#002FA7">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23002FA7'/><text x='50' y='70' font-size='58' text-anchor='middle' fill='%23fff' font-family='sans-serif' font-weight='bold'>脑</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">脑</span>
+      <span class="logo-text">快快长脑子<small>KLEIN BLUE BRAIN</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="菜单">☰</button>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="games.html">游戏长脑子</a>
+      <a href="play.html">玩长脑子</a>
+      <a href="jokes.html">笑话长脑子</a>
+      <a href="learn.html">学习长脑子</a>
+    </div>
+  </div>
+</nav>
+
+<header class="phead">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">首页</a> / 笑话长脑子</div>
+    <h1>😂 笑话长脑子</h1>
+    <p>能听懂一个梗，说明你的脑子同时在做两件事：理解字面意思，再瞬间拐个弯。这叫幽默感，也是智力。</p>
+  </div>
+</header>
+
+<section class="section" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="card" style="background:linear-gradient(135deg,var(--klein),var(--klein-deep));border:none;color:#fff">
+      <div class="row" style="justify-content:space-between">
+        <div style="text-align:left;flex:1 1 300px">
+          <span class="pill" style="background:rgba(255,255,255,.16);color:#fff" id="rndTag">随机</span>
+          <h3 class="mt16" style="color:#fff" id="rndQ">点右边按钮，随机来一个</h3>
+          <p style="color:var(--sun);font-weight:700;margin:0;min-height:24px" id="rndA"></p>
+        </div>
+        <div class="row" style="gap:8px">
+          <button class="btn sun" id="rndNew">🎲 换一个</button>
+          <button class="btn ghost" id="rndShow" style="background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)">揭晓</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" data-tabs>
+  <div class="tabs">
+    <button class="tab on" data-target="j-all">全部</button>
+    <button class="tab" data-target="j-turn">🤯 脑筋急转弯</button>
+    <button class="tab" data-target="j-cold">🧊 冷笑话</button>
+    <button class="tab" data-target="j-pun">🔤 谐音梗</button>
+    <button class="tab" data-target="j-sci">🔬 科学冷幽默</button>
+  </div>
+
+  <section class="panel on" id="j-all"><div class="grid g2 mt16" data-fill="all"></div></section>
+  <section class="panel" id="j-turn"><div class="grid g2 mt16" data-fill="turn"></div></section>
+  <section class="panel" id="j-cold"><div class="grid g2 mt16" data-fill="cold"></div></section>
+  <section class="panel" id="j-pun"><div class="grid g2 mt16" data-fill="pun"></div></section>
+  <section class="panel" id="j-sci"><div class="grid g2 mt16" data-fill="sci"></div></section>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="card" style="max-width:760px">
+      <span class="eyebrow">冷知识</span>
+      <h3>为什么听懂笑话会「爽」一下？</h3>
+      <p>科学家用脑成像发现：听笑话时，大脑先按常规理解句子，走到一半发现「不对」，被迫立刻换一条路重新解释——就在换路成功的那一瞬间，大脑会释放多巴胺奖励你。</p>
+      <p style="margin:0">所以笑不是白笑的，那是你的大脑在给「灵活切换思路」发奖金。听得懂的梗越多，脑子换路越熟练。</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="flex:1 1 240px">
+        <h4>🧠 快快长脑子</h4>
+        <p style="color:rgba(255,255,255,.66);font-size:14px;margin:0">给 12 岁小朋友的克莱因蓝脑力乐园。</p>
+      </div>
+      <div>
+        <h4>长脑子模块</h4>
+        <ul>
+          <li><a href="games.html">游戏长脑子</a></li>
+          <li><a href="play.html">玩长脑子</a></li>
+          <li><a href="jokes.html">笑话长脑子</a></li>
+          <li><a href="learn.html">学习长脑子</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 快快长脑子</span><span>脑子越用越大 🧠</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/jokes.js"></script>
+</body>
+</html>

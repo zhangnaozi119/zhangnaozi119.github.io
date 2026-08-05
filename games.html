@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>游戏长脑子 · 快快长脑子</title>
+<meta name="description" content="记忆翻牌、舒尔特方格、24 点速算、反应力测试——四个能直接玩的脑力小游戏。">
+<meta name="theme-color" content="#002FA7">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23002FA7'/><text x='50' y='70' font-size='58' text-anchor='middle' fill='%23fff' font-family='sans-serif' font-weight='bold'>脑</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">脑</span>
+      <span class="logo-text">快快长脑子<small>KLEIN BLUE BRAIN</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="菜单">☰</button>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="games.html">游戏长脑子</a>
+      <a href="play.html">玩长脑子</a>
+      <a href="jokes.html">笑话长脑子</a>
+      <a href="learn.html">学习长脑子</a>
+    </div>
+  </div>
+</nav>
+
+<header class="phead">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">首页</a> / 游戏长脑子</div>
+    <h1>🎮 游戏长脑子</h1>
+    <p>四个小游戏，分别练记忆力、注意力、计算力和反应力。成绩只存在你自己的手机或电脑里。</p>
+  </div>
+</header>
+
+<div class="wrap" data-tabs>
+  <div class="tabs">
+    <button class="tab on" data-target="g-memo">🃏 记忆翻牌</button>
+    <button class="tab" data-target="g-schulte">🔢 舒尔特方格</button>
+    <button class="tab" data-target="g-24">➗ 24 点</button>
+    <button class="tab" data-target="g-react">⚡ 反应力测试</button>
+  </div>
+
+  <!-- 记忆翻牌 -->
+  <section class="panel on" id="g-memo">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>记忆翻牌</h3>
+        <span class="hint">把 8 对图案全部配对。练的是「工作记忆」。</span>
+        <span class="spacer"></span>
+        <span class="stat">步数 <b id="memoSteps">0</b></span>
+        <span class="stat">用时 <b id="memoTime">0</b>s</span>
+        <span class="stat">最好 <b id="memoBest">—</b></span>
+        <button class="btn sm" id="memoNew">重新开始</button>
+      </div>
+      <div class="memo-grid" id="memoGrid"></div>
+      <div class="feedback center" id="memoFb"></div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">翻牌时你要在脑子里临时「存」住刚看过的位置和图案，这块能力叫<b>工作记忆</b>，上课记老师说的步骤、心算多位数加法，用的都是它。步数越少说明存得越准。</p>
+    </div>
+  </section>
+
+  <!-- 舒尔特方格 -->
+  <section class="panel" id="g-schulte">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>舒尔特方格</h3>
+        <span class="hint">从 1 按顺序点到最后一个数字，越快越好。</span>
+        <span class="spacer"></span>
+        <span class="stat">下一个 <b id="scNext">1</b></span>
+        <span class="stat">用时 <b id="scTime">0.0</b>s</span>
+        <span class="stat">最好 <b id="scBest">—</b></span>
+        <select id="scSize" class="btn ghost sm" style="padding:8px 14px">
+          <option value="3">3 × 3 简单</option>
+          <option value="4" selected>4 × 4 普通</option>
+          <option value="5">5 × 5 困难</option>
+          <option value="6">6 × 6 地狱</option>
+        </select>
+        <button class="btn sm" id="scNew">重新开始</button>
+      </div>
+      <div class="schulte" id="scGrid"></div>
+      <div class="feedback center" id="scFb"></div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">这是飞行员和宇航员用来测<b>注意力广度</b>的经典训练。诀窍是眼睛盯住方格中心不动，用「余光」去找数字——练久了看书一眼能扫到的字会变多。</p>
+    </div>
+  </section>
+
+  <!-- 24点 -->
+  <section class="panel" id="g-24">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>24 点</h3>
+        <span class="hint">用四个数字各一次，加减乘除算出 24。</span>
+        <span class="spacer"></span>
+        <span class="stat">已解 <b id="p24Score">0</b></span>
+        <span class="stat">连对 <b id="p24Streak">0</b></span>
+        <button class="btn sm" id="p24New">换一组</button>
+      </div>
+      <div class="num-row" id="p24Nums"></div>
+      <div class="center">
+        <input class="answer-input" id="p24Input" placeholder="例如：(3+3)*(8-4)  然后回车" autocomplete="off">
+        <div class="row mt16">
+          <button class="btn sm" id="p24Check">检查答案</button>
+          <button class="btn ghost sm" id="p24Show">看看怎么算</button>
+        </div>
+        <div class="feedback" id="p24Fb"></div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">24 点逼你在脑子里同时试好几条路——这叫<b>心算 + 搜索能力</b>。小技巧：先想能不能凑出 <code>4×6</code>、<code>3×8</code>、<code>12×2</code>、<code>24+0</code>，命中率一下子就高了。</p>
+    </div>
+  </section>
+
+  <!-- 反应力 -->
+  <section class="panel" id="g-react">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>反应力测试</h3>
+        <span class="hint">变绿的瞬间点一下，测你的神经有多快。</span>
+        <span class="spacer"></span>
+        <span class="stat">本次 <b id="rtNow">—</b></span>
+        <span class="stat">最快 <b id="rtBest">—</b></span>
+        <span class="stat">平均 <b id="rtAvg">—</b></span>
+      </div>
+      <div class="react-pad" id="rtPad">点这里开始</div>
+      <div class="feedback center" id="rtFb"></div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">从眼睛看到绿色，到手指按下去，信号要跑完「视网膜 → 大脑 → 脊髓 → 手指」一整圈。人类平均约 <b>250 毫秒</b>，运动员能到 <b>180 毫秒</b>。低于 100ms 基本是抢跑，不算数。</p>
+    </div>
+  </section>
+</div>
+
+<div style="height:40px"></div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="flex:1 1 240px">
+        <h4>🧠 快快长脑子</h4>
+        <p style="color:rgba(255,255,255,.66);font-size:14px;margin:0">给 12 岁小朋友的克莱因蓝脑力乐园。</p>
+      </div>
+      <div>
+        <h4>长脑子模块</h4>
+        <ul>
+          <li><a href="games.html">游戏长脑子</a></li>
+          <li><a href="play.html">玩长脑子</a></li>
+          <li><a href="jokes.html">笑话长脑子</a></li>
+          <li><a href="learn.html">学习长脑子</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 快快长脑子</span><span>脑子越用越大 🧠</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/games.js"></script>
+</body>
+</html>

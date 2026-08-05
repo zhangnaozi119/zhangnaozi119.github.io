@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>玩长脑子 · 快快长脑子</title>
+<meta name="description" content="汉诺塔、视错觉实验室、经典思维谜题——动动手指就发现世界的怪脾气。">
+<meta name="theme-color" content="#002FA7">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23002FA7'/><text x='50' y='70' font-size='58' text-anchor='middle' fill='%23fff' font-family='sans-serif' font-weight='bold'>脑</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">脑</span>
+      <span class="logo-text">快快长脑子<small>KLEIN BLUE BRAIN</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="菜单">☰</button>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="games.html">游戏长脑子</a>
+      <a href="play.html">玩长脑子</a>
+      <a href="jokes.html">笑话长脑子</a>
+      <a href="learn.html">学习长脑子</a>
+    </div>
+  </div>
+</nav>
+
+<header class="phead">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">首页</a> / 玩长脑子</div>
+    <h1>🧩 玩长脑子</h1>
+    <p>不是比谁快，是玩到「咦？原来是这样」的那一下。那一下，脑子就长了。</p>
+  </div>
+</header>
+
+<div class="wrap" data-tabs>
+  <div class="tabs">
+    <button class="tab on" data-target="p-hanoi">🗼 汉诺塔</button>
+    <button class="tab" data-target="p-illu">👁 视错觉实验室</button>
+    <button class="tab" data-target="p-riddle">🕵️ 思维谜题</button>
+  </div>
+
+  <!-- 汉诺塔 -->
+  <section class="panel on" id="p-hanoi">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>汉诺塔</h3>
+        <span class="hint">把所有圆盘从左边搬到右边。大盘不能压在小盘上。</span>
+        <span class="spacer"></span>
+        <span class="stat">步数 <b id="hnSteps">0</b></span>
+        <span class="stat">最少 <b id="hnMin">7</b></span>
+        <select id="hnLevel" class="btn ghost sm" style="padding:8px 14px">
+          <option value="3" selected>3 个盘</option>
+          <option value="4">4 个盘</option>
+          <option value="5">5 个盘</option>
+          <option value="6">6 个盘（挑战）</option>
+        </select>
+        <button class="btn sm" id="hnNew">重来</button>
+      </div>
+      <div class="hanoi" id="hnBoard"></div>
+      <div class="feedback center" id="hnFb">点一根柱子选中最上面的盘，再点另一根柱子放下。</div>
+    </div>
+
+    <div class="grid g2 mt16">
+      <div class="card">
+        <h3>🧠 藏在里面的数学</h3>
+        <p>n 个盘子，最少要搬 <b>2ⁿ − 1</b> 步。3 个盘 7 步，10 个盘 1023 步，<b>64 个盘要 1844 亿亿步</b>。</p>
+        <p style="margin:0">传说印度僧侣搬完 64 个盘，世界就终结了。就算一秒一步，也要 5800 亿年——太阳都烧完了。放心玩。</p>
+      </div>
+      <div class="card">
+        <h3>💡 通关口诀</h3>
+        <p>想搬 n 个盘，先想办法把上面 n−1 个搬到「中间那根」，再把最大的搬到目标，最后把 n−1 个搬过去。</p>
+        <p style="margin:0">这种「大问题拆成一样的小问题」的思路叫 <b>递归</b>，是程序员每天都在用的招。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 视错觉 -->
+  <section class="panel" id="p-illu">
+    <p class="lead mt16">眼睛会撒谎，而且理直气壮。下面每一个都能亲手验证。</p>
+    <div class="grid g2 mt16">
+
+      <div class="illu">
+        <h3>1. 缪勒–莱尔错觉</h3>
+        <p>两条横线哪条更长？</p>
+        <div class="illu-stage">
+          <svg width="320" height="130" viewBox="0 0 320 130">
+            <g stroke="#002FA7" stroke-width="4" fill="none" stroke-linecap="round">
+              <line x1="60" y1="40" x2="260" y2="40"/>
+              <path d="M60 40 L80 25 M60 40 L80 55 M260 40 L240 25 M260 40 L240 55"/>
+              <line x1="60" y1="95" x2="260" y2="95"/>
+              <path d="M60 95 L40 80 M60 95 L40 110 M260 95 L280 80 M260 95 L280 110"/>
+            </g>
+          </svg>
+        </div>
+        <button class="btn ghost sm reveal-btn">看答案</button>
+        <div class="reveal">
+          <p class="mt16" style="margin-bottom:0"><b>一样长，都是 200 像素。</b>箭头往外张开会让大脑判断这条线「离得更远」，于是自动把它脑补得更长。这也是为什么房间的墙角看起来会变形。</p>
+        </div>
+      </div>
+
+      <div class="illu">
+        <h3>2. 咖啡墙错觉</h3>
+        <p>这些横线是斜的还是平行的？</p>
+        <div class="illu-stage">
+          <div id="cafeWall" style="width:300px;border:3px solid #002FA7;border-radius:8px;overflow:hidden"></div>
+        </div>
+        <button class="btn ghost sm reveal-btn">看答案</button>
+        <div class="reveal">
+          <p class="mt16" style="margin-bottom:0"><b>完全平行。</b>黑白方块错位排列时，中间的灰色缝隙会「拽」着大脑往一个方向偏。英国布里斯托一家咖啡馆的外墙就是这样铺的，所以叫咖啡墙。</p>
+        </div>
+      </div>
+
+      <div class="illu">
+        <h3>3. 艾宾浩斯错觉</h3>
+        <p>中间两个橙色圆，哪个更大？</p>
+        <div class="illu-stage">
+          <svg width="340" height="170" viewBox="0 0 340 170">
+            <g fill="#4B72F0">
+              <circle cx="85" cy="30" r="26"/><circle cx="30" cy="85" r="26"/>
+              <circle cx="140" cy="85" r="26"/><circle cx="85" cy="140" r="26"/>
+            </g>
+            <circle cx="85" cy="85" r="24" fill="#FF8A3D"/>
+            <g fill="#4B72F0">
+              <circle cx="255" cy="52" r="10"/><circle cx="222" cy="85" r="10"/>
+              <circle cx="288" cy="85" r="10"/><circle cx="255" cy="118" r="10"/>
+            </g>
+            <circle cx="255" cy="85" r="24" fill="#FF8A3D"/>
+          </svg>
+        </div>
+        <button class="btn ghost sm reveal-btn">看答案</button>
+        <div class="reveal">
+          <p class="mt16" style="margin-bottom:0"><b>一样大，半径都是 24。</b>大脑判断大小时会偷偷跟旁边的东西比。所以在一群高个子里你会觉得自己矮——数字没变，参照物变了。</p>
+        </div>
+      </div>
+
+      <div class="illu">
+        <h3>4. 赫尔曼栅格</h3>
+        <p>盯着看，白色交叉点上有灰点吗？</p>
+        <div class="illu-stage">
+          <div style="width:260px;height:260px;background:#0A1230;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);gap:12px;padding:12px;border-radius:8px" id="hermann"></div>
+        </div>
+        <button class="btn ghost sm reveal-btn">看答案</button>
+        <div class="reveal">
+          <p class="mt16" style="margin-bottom:0"><b>灰点不存在。</b>你直视的交叉点是白的，余光里的却「变灰」了。因为视网膜细胞会互相压制亮度（侧抑制），余光区域被压得更狠。灰点永远出现在你没看的地方——追不到的。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 思维谜题 -->
+  <section class="panel" id="p-riddle">
+    <p class="lead mt16">先自己想三分钟再看提示。想不出来不丢人，直接看答案才亏。</p>
+    <div class="grid g2 mt16" id="riddleList"></div>
+  </section>
+</div>
+
+<div style="height:40px"></div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="flex:1 1 240px">
+        <h4>🧠 快快长脑子</h4>
+        <p style="color:rgba(255,255,255,.66);font-size:14px;margin:0">给 12 岁小朋友的克莱因蓝脑力乐园。</p>
+      </div>
+      <div>
+        <h4>长脑子模块</h4>
+        <ul>
+          <li><a href="games.html">游戏长脑子</a></li>
+          <li><a href="play.html">玩长脑子</a></li>
+          <li><a href="jokes.html">笑话长脑子</a></li>
+          <li><a href="learn.html">学习长脑子</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 快快长脑子</span><span>脑子越用越大 🧠</span></div>
+  </div>
+</footer>
+
+<style>
+.reveal { max-height:0; overflow:hidden; opacity:0; transition:max-height .4s ease, opacity .3s ease; }
+.reveal.on { max-height:320px; opacity:1; }
+.riddle-step { max-height:0; overflow:hidden; opacity:0; transition:max-height .35s ease, opacity .3s; }
+.riddle-step.on { max-height:300px; opacity:1; margin-top:12px; }
+</style>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/play.js"></script>
+</body>
+</html>
