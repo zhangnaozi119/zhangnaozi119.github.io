@@ -41,6 +41,7 @@
     <button class="tab on" data-target="l-math">⚡ 60 秒速算</button>
     <button class="tab" data-target="l-card">💡 冷知识卡片</button>
     <button class="tab" data-target="l-quiz">🏆 知识闯关</button>
+    <button class="tab" data-target="l-physics">🔬 物理问答</button>
   </div>
 
   <!-- 速算 -->
@@ -108,6 +109,24 @@
       </div>
     </div>
   </section>
+
+  <!-- 物理问答 · 每日热点物理 -->
+  <section class="panel" id="l-physics">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>🔬 物理问答 · 每日热点</h3>
+        <span class="hint">基于真实热点的趣味物理，点选项看对错，再展开三层讲解。</span>
+        <span class="spacer"></span>
+        <select id="phDate" class="btn ghost sm" style="padding:8px 14px"></select>
+      </div>
+      <div id="phList" class="mt16"></div>
+      <div class="feedback" id="phFb"></div>
+    </div>
+    <div class="card mt16">
+      <h3>🧪 怎么玩</h3>
+      <p style="margin:0">每天更新 3 道题，每题先选你心里的答案，再点开看「现象 → 原理 + 小实验 → 生活里的它」三层讲解。错题不可怕，看懂解析就是长脑子。</p>
+    </div>
+  </section>
 </div>
 
 <div style="height:40px"></div>
@@ -135,5 +154,6 @@
 
 <script src="assets/js/main.js"></script>
 <script src="assets/js/learn.js"></script>
+<script src="assets/js/physics.js"></script>
 </body>
 </html>
