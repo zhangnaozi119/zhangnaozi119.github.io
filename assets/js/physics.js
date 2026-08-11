@@ -22,7 +22,7 @@
           return;
         }
         dateSel.innerHTML = issues.map(function (it) {
-          var label = it.date + (it.title ? ' · ' + it.title : '');
+          var label = it.title || it.date;
           return '<option value="' + it.file + '">' + label + '</option>';
         }).join('');
         dateSel.onchange = function () { loadIssue(dateSel.value); };
