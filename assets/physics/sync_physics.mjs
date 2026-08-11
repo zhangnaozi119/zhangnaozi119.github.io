@@ -81,7 +81,6 @@ const token = getToken();
 if (!token) die('未找到 GitHub token（请设置环境变量 GH_PAT 或在 ' + TOKEN_FILE + ' 写入）');
 
 const authRemote = REMOTE.replace('https://', 'https://zhangnaozi119:' + token + '@');
-const proxies = ['http://127.0.0.1:7892', ''];
 
 // 全局有 url.https://codeload.github.com/.insteadOf=https://github.com/
 // 会把所有 github.com 操作偷偷改到 codeload（codeload 不接受写操作 → 404）。
