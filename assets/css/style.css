@@ -477,3 +477,32 @@ code {
 .ph-layer p { margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink); }
 .ph-layer ul { margin: 6px 0 0; padding-left: 20px; }
 .ph-layer li { font-size: 13.5px; color: var(--ink-2); line-height: 1.7; margin-bottom: 5px; }
+
+/* ---------- 新游戏：滑块拼图 / 猜数字 / 颜色反应 / 打字 ---------- */
+.slide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 300px; margin: 0 auto; }
+.slide-tile {
+  aspect-ratio: 1; border-radius: var(--r-s);
+  background: var(--klein); color: #fff;
+  display: grid; place-items: center; font-size: 30px; font-weight: 900;
+  box-shadow: var(--sh-s); transition: transform .12s, background .12s;
+}
+.slide-tile:active { transform: scale(.95); }
+.slide-tile.empty { background: transparent; box-shadow: inset 0 0 0 2px var(--line); cursor: default; }
+
+.stroop-word {
+  text-align: center; font-size: 84px; font-weight: 900;
+  margin: 16px auto 18px; user-select: none;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, .05);
+}
+.stroop-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.stroop-color-btn {
+  width: 64px; height: 64px; border-radius: 50%;
+  box-shadow: var(--sh-s); transition: transform .12s;
+}
+.stroop-color-btn:active { transform: scale(.9); }
+
+.type-target {
+  text-align: center; font-size: 40px; font-weight: 900; color: var(--klein-deep);
+  margin: 16px auto; padding: 18px; background: var(--klein-mist);
+  border-radius: var(--r-l); letter-spacing: 2px;
+}
