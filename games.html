@@ -32,7 +32,7 @@
   <div class="wrap">
     <div class="crumb"><a href="index.html">首页</a> / 游戏长脑子</div>
     <h1>🎮 游戏长脑子</h1>
-    <p>四个小游戏，分别练记忆力、注意力、计算力和反应力。成绩只存在你自己的手机或电脑里。</p>
+    <p>八个小游戏，分别练记忆力、注意力、计算力、反应力、空间逻辑、搜索策略和专注力。成绩只存在你自己的手机或电脑里。</p>
   </div>
 </header>
 
@@ -42,6 +42,10 @@
     <button class="tab" data-target="g-schulte">🔢 舒尔特方格</button>
     <button class="tab" data-target="g-24">➗ 24 点</button>
     <button class="tab" data-target="g-react">⚡ 反应力测试</button>
+    <button class="tab" data-target="g-slide">🧩 滑块拼图</button>
+    <button class="tab" data-target="g-guess">🔢 猜数字</button>
+    <button class="tab" data-target="g-stroop">🎨 颜色反应</button>
+    <button class="tab" data-target="g-type">⌨️ 打字小将</button>
   </div>
 
   <!-- 记忆翻牌 -->
@@ -136,6 +140,99 @@
     <div class="card mt16">
       <h3>🧠 这在练什么</h3>
       <p style="margin:0">从眼睛看到绿色，到手指按下去，信号要跑完「视网膜 → 大脑 → 脊髓 → 手指」一整圈。人类平均约 <b>250 毫秒</b>，运动员能到 <b>180 毫秒</b>。低于 100ms 基本是抢跑，不算数。</p>
+    </div>
+  </section>
+
+  <!-- 滑块拼图 -->
+  <section class="panel" id="g-slide">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>滑块拼图</h3>
+        <span class="hint">把数字按 1 → 8 排好，空格归位。练空间逻辑。</span>
+        <span class="spacer"></span>
+        <span class="stat">步数 <b id="slSteps">0</b></span>
+        <span class="stat">用时 <b id="slTime">0</b>s</span>
+        <span class="stat">最好 <b id="slBest">—</b></span>
+        <button class="btn sm" id="slNew">重新开始</button>
+      </div>
+      <div class="slide-grid" id="slGrid"></div>
+      <div class="feedback center" id="slFb"></div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">这是经典「15 数码」问题的迷你版。每一步你都得在脑子里预演「挪这块会不会堵路」，这叫<b>计划与空间推理</b>，解几何题、拼乐高、走迷宫都靠它。</p>
+    </div>
+  </section>
+
+  <!-- 猜数字 -->
+  <section class="panel" id="g-guess">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>猜数字</h3>
+        <span class="hint">我心里想了 1–100 里的一个数，用二分法最快 7 次就能中。</span>
+        <span class="spacer"></span>
+        <span class="stat">次数 <b id="gsTries">0</b></span>
+        <span class="stat">范围 <b id="gsRange">1-100</b></span>
+        <span class="stat">最少 <b id="gsBest">—</b></span>
+        <button class="btn sm" id="gsNew">重新开始</button>
+      </div>
+      <div class="center">
+        <input class="answer-input" id="gsInput" type="number" placeholder="输入你猜的数，回车提交" autocomplete="off">
+        <div class="row mt16">
+          <button class="btn sm" id="gsGo">猜！</button>
+        </div>
+        <div class="feedback" id="gsFb"></div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">它偷偷在练<b>二分查找</b>——每次都猜中间值，把范围砍掉一半。计算机在海量数据里找东西也用这招，7 次就能从 100 个数里锁定 1 个。</p>
+    </div>
+  </section>
+
+  <!-- 颜色反应 -->
+  <section class="panel" id="g-stroop">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>颜色反应</h3>
+        <span class="hint">点下面和「字本身的颜色」一致的按钮，别被字义骗了！</span>
+        <span class="spacer"></span>
+        <span class="stat">第 <b id="stNo">1</b>/12 题</span>
+        <span class="stat">对 <b id="stRight">0</b></span>
+        <span class="stat">用时 <b id="stTime">0.0</b>s</span>
+        <button class="btn sm" id="stNew">重新开始</button>
+      </div>
+      <div class="stroop-word" id="stWord">红</div>
+      <div class="stroop-btns" id="stBtns"></div>
+      <div class="feedback center" id="stFb"></div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">这叫<b>斯特鲁普效应</b>：大脑读字义比辨颜色快，所以「红」字用蓝字写出来时你会本能想点蓝。压制这个本能就是练<b>专注力与自控</b>——很多飞行员、空管都拿它做训练。</p>
+    </div>
+  </section>
+
+  <!-- 打字小将 -->
+  <section class="panel" id="g-type">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>打字小将</h3>
+        <span class="hint">照着下面的大字，准确地打出来再回车，越快越准越好。</span>
+        <span class="spacer"></span>
+        <span class="stat">第 <b id="tyNo">0</b>/10 词</span>
+        <span class="stat">用时 <b id="tyTime">0.0</b>s</span>
+        <span class="stat">最快 <b id="tyBest">—</b> WPM</span>
+        <button class="btn sm" id="tyNew">重新开始</button>
+      </div>
+      <div class="type-target" id="tyTarget">点「重新开始」开始</div>
+      <div class="center">
+        <input class="answer-input" id="tyInput" placeholder="在这里打字，回车提交" autocomplete="off">
+        <div class="feedback" id="tyFb"></div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">打字把「看到的字 → 手指动作」连成一条自动化的神经通路。练熟后写作文、查资料手速都更快，是把想法「搬」出大脑的基本功。</p>
     </div>
   </section>
 </div>
