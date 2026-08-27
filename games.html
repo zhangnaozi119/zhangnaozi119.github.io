@@ -32,7 +32,7 @@
   <div class="wrap">
     <div class="crumb"><a href="index.html">首页</a> / 游戏长脑子</div>
     <h1>🎮 游戏长脑子</h1>
-    <p>八个小游戏，分别练记忆力、注意力、计算力、反应力、空间逻辑、搜索策略和专注力。成绩只存在你自己的手机或电脑里。</p>
+    <p>十六个小游戏，分别练记忆力、注意力、计算力、反应力、逻辑推理、空间认知和策略。成绩只存在你自己的手机或电脑里。</p>
   </div>
 </header>
 
@@ -46,6 +46,14 @@
     <button class="tab" data-target="g-guess">🔢 猜数字</button>
     <button class="tab" data-target="g-stroop">🎨 颜色反应</button>
     <button class="tab" data-target="g-type">⌨️ 打字小将</button>
+    <button class="tab" data-target="g-sudoku">🔢 数独迷你</button>
+    <button class="tab" data-target="g-span">🧠 数字广度</button>
+    <button class="tab" data-target="g-seq">🎯 找规律</button>
+    <button class="tab" data-target="g-simon">🟥 颜色记忆</button>
+    <button class="tab" data-target="g-diff">🔍 找不同</button>
+    <button class="tab" data-target="g-ttt">❌ 圈叉棋</button>
+    <button class="tab" data-target="g-word">🔤 拼字游戏</button>
+    <button class="tab" data-target="g-maze">🌀 走迷宫</button>
   </div>
 
   <!-- 记忆翻牌 -->
@@ -234,6 +242,197 @@
     <div class="card mt16">
       <h3>🧠 这在练什么</h3>
       <p style="margin:0">打字把「看到的字 → 手指动作」连成一条自动化的神经通路。练熟后写作文、查资料手速都更快，是把想法「搬」出大脑的基本功。</p>
+    </div>
+  </section>
+
+  <!-- 数独迷你 -->
+  <section class="panel" id="g-sudoku">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>数独迷你</h3>
+        <span class="hint">4×4 数独：每行、每列、每个田字格都要有 1–4。</span>
+        <span class="spacer"></span>
+        <span class="stat">用时 <b id="suTime">0</b>s</span>
+        <span class="stat">最好 <b id="suBest">—</b></span>
+        <button class="btn sm" id="suNew">换一题</button>
+      </div>
+      <div class="center">
+        <div class="sudoku" id="suGrid"></div>
+        <div class="num-pad mt16" id="suPad"></div>
+        <div class="feedback center" id="suFb"></div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">数独逼你同时盯住「行、列、田字格」三种约束，是经典的<b>逻辑推理与工作记忆训练</b>。先找唯一能填的位置，比乱猜快得多。</p>
+    </div>
+  </section>
+
+  <!-- 数字广度 -->
+  <section class="panel" id="g-span">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>数字广度</h3>
+        <span class="hint">记住闪现的一串数字，按顺序复述。越长越厉害。</span>
+        <span class="spacer"></span>
+        <span class="stat">当前长度 <b id="spLen">3</b></span>
+        <span class="stat">最高 <b id="spBest">—</b></span>
+        <button class="btn sm" id="spNew">开始</button>
+      </div>
+      <div class="center">
+        <div class="span-display" id="spShow">点「开始」</div>
+        <div id="spInputWrap" style="display:none">
+          <input class="answer-input" id="spInput" placeholder="按顺序输入，如 3 8 1" autocomplete="off">
+          <button class="btn sm mt16" id="spSubmit">提交</button>
+        </div>
+        <div class="feedback center" id="spFb"></div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">这叫<b>数字广度测试</b>，心理学家用它衡量工作记忆容量。普通人短时能记 7 个左右，专业棋手、翻译能更长——它是可以练出来的。</p>
+    </div>
+  </section>
+
+  <!-- 找规律 -->
+  <section class="panel" id="g-seq">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>找规律</h3>
+        <span class="hint">看前几个数，猜下一个数是什么。</span>
+        <span class="spacer"></span>
+        <span class="stat">答对 <b id="sqRight">0</b></span>
+        <span class="stat">连对 <b id="sqStreak">0</b></span>
+        <button class="btn sm" id="sqNew">换一题</button>
+      </div>
+      <div class="center">
+        <div class="seq-row" id="sqRow"></div>
+        <div class="row mt16" id="sqOpts"></div>
+        <div class="feedback center" id="sqFb"></div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">找规律是<b>归纳推理</b>——从有限的例子里猜出隐藏规则。数学公式、编程算法、科学发现，第一步都是「找规律」。</p>
+    </div>
+  </section>
+
+  <!-- 颜色记忆 -->
+  <section class="panel" id="g-simon">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>颜色记忆</h3>
+        <span class="hint">看好亮起的顺序，照着点出来。每过一关多一个。</span>
+        <span class="spacer"></span>
+        <span class="stat">长度 <b id="smLen">0</b></span>
+        <span class="stat">最高 <b id="smBest">—</b></span>
+        <button class="btn sm" id="smNew">开始</button>
+      </div>
+      <div class="center">
+        <div class="simon" id="smBoard">
+          <button class="simon-pad" data-c="0" style="background:#FF5A5F"></button>
+          <button class="simon-pad" data-c="1" style="background:#FFD400"></button>
+          <button class="simon-pad" data-c="2" style="background:#002FA7"></button>
+          <button class="simon-pad" data-c="3" style="background:#17C3A2"></button>
+        </div>
+        <div class="feedback center" id="smFb">点「开始」</div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">这是经典的<b>序列记忆</b>训练。把颜色顺序存进大脑再原样「播放」出来，是工作记忆的硬核锻炼，音乐家、演员天天都在用。</p>
+    </div>
+  </section>
+
+  <!-- 找不同 -->
+  <section class="panel" id="g-diff">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>找不同</h3>
+        <span class="hint">右边那幅图里藏了一个不一样的小格子，点出来！</span>
+        <span class="spacer"></span>
+        <span class="stat">找到 <b id="dfFound">0</b></span>
+        <span class="stat">最好 <b id="dfBest">—</b></span>
+        <button class="btn sm" id="dfNew">换一张</button>
+      </div>
+      <div class="center">
+        <div class="diff-wrap">
+          <div class="diff-grid" id="dfLeft"></div>
+          <div class="diff-grid" id="dfRight"></div>
+        </div>
+        <div class="feedback center" id="dfFb">点右边那幅里不对劲的格子</div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">找不同逼你<b>快速比对细节</b>，是视觉注意力与观察力的直接训练。侦察兵、质检员、读图找错题，靠的都是这双眼睛。</p>
+    </div>
+  </section>
+
+  <!-- 圈叉棋 -->
+  <section class="panel" id="g-ttt">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>圈叉棋</h3>
+        <span class="hint">你执 ✕，电脑执 ○。连成一条线就赢。</span>
+        <span class="spacer"></span>
+        <span class="stat">胜 <b id="ttWin">0</b></span>
+        <span class="stat">负 <b id="ttLose">0</b></span>
+        <button class="btn sm" id="ttNew">重新开始</button>
+      </div>
+      <div class="center">
+        <div class="ttt" id="ttBoard"></div>
+        <div class="feedback center" id="ttFb">你先走 ✕</div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">圈叉棋是<b>博弈与策略</b>的入门。要赢，得站在对手角度想「他下一步会怎么堵我」——这叫二阶思维，下棋、谈判、做计划都用得上。</p>
+    </div>
+  </section>
+
+  <!-- 拼字游戏 -->
+  <section class="panel" id="g-word">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>拼字游戏</h3>
+        <span class="hint">字母被打乱了，把它拼回正确的英文单词。</span>
+        <span class="spacer"></span>
+        <span class="stat">答对 <b id="wdRight">0</b></span>
+        <span class="stat">连对 <b id="wdStreak">0</b></span>
+        <button class="btn sm" id="wdNew">换一个</button>
+      </div>
+      <div class="center">
+        <div class="scramble" id="wdScramble"></div>
+        <input class="answer-input" id="wdInput" placeholder="拼出正确单词，回车提交" autocomplete="off">
+        <div class="feedback center" id="wdFb"></div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">拼字要把字母在脑子里重新排列组合，练的是<b>字母知觉与拼写记忆</b>，对记英语单词特别有帮助——很多英语好的孩子都爱玩这个。</p>
+    </div>
+  </section>
+
+  <!-- 走迷宫 -->
+  <section class="panel" id="g-maze">
+    <div class="game-box">
+      <div class="game-top">
+        <h3>走迷宫</h3>
+        <span class="hint">用方向键或点相邻格子，从 🚩 走到 🏁。</span>
+        <span class="spacer"></span>
+        <span class="stat">步数 <b id="mzSteps">0</b></span>
+        <span class="stat">最好 <b id="mzBest">—</b></span>
+        <button class="btn sm" id="mzNew">换一张</button>
+      </div>
+      <div class="center">
+        <div class="maze" id="mzBoard"></div>
+        <div class="feedback center" id="mzFb">走到右下角的 🏁</div>
+      </div>
+    </div>
+    <div class="card mt16">
+      <h3>🧠 这在练什么</h3>
+      <p style="margin:0">走迷宫要边走边在心里画「地图」，是<b>空间认知与规划</b>训练，也练抗挫折——走错路很正常，退回来再试就是了。</p>
     </div>
   </section>
 </div>
