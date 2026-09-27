@@ -1,6 +1,11 @@
 {
-  "latest": "2026-09-27",
+  "latest": "2026-09-28",
   "issues": [
+    {
+      "date": "2026-09-28",
+      "title": "9月28日",
+      "file": "assets/physics/issues/2026-09-28.json"
+    },
     {
       "date": "2026-09-27",
       "title": "9月27日",
